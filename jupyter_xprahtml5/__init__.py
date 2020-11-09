@@ -6,18 +6,19 @@ logger.setLevel('INFO')
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+
 def _xprahtml5_mappath(path):
     from getpass import getuser
-        
+
     uri_parms = '?' + '&'.join([
                   'username=' + getuser(),
-#                  'password=' + _xprahtml5_passwd,
-#                  'encryption=AES',
-#                  'key=' + _xprahtml5_aeskey,
-#                  'sharing=true',
+                # 'password=' + _xprahtml5_passwd,
+                # 'encryption=AES',
+                # 'key=' + _xprahtml5_aeskey,
+                # 'sharing=true',
                   ])
 
-    if path in ('/', '/index.html', ): 
+    if path in ('/', '/index.html', ):
         path = '/index.html' + uri_parms
         logger.info('Xpra URI: ' + path)
 
@@ -32,7 +33,6 @@ def setup_xprahtml5():
     from tempfile import gettempdir, mkstemp
     from random import choice
     from string import ascii_letters, digits
-    from getpass import getuser
 
     global _xprahtml5_passwd, _xprahtml5_aeskey
 
@@ -55,7 +55,7 @@ def setup_xprahtml5():
         with open(fd_passwd, 'w') as f:
             f.write(_xprahtml5_passwd)
 
-    except:
+    except Exception:
         logger.error("Passwd generation in temp file FAILED")
         raise FileNotFoundError("Passwd generation in temp file FAILED")
 
@@ -67,22 +67,23 @@ def setup_xprahtml5():
 
         with open(fd_aeskey, 'w') as f:
             f.write(_xprahtml5_aeskey)
-    except:
+
+    except Exception:
         logger.error("Encryption key generation in temp file FAILED")
         raise FileNotFoundError("Encryption key generation in temp file FAILED")
 
     # create command
-    cmd = [ os.path.join(HERE, 'share/launch_xpra.sh'),
+    cmd = [os.path.join(HERE, 'share/launch_xpra.sh'),
             'start',
             '--html=on',
             '--bind-tcp=0.0.0.0:{port}',
-#            '--socket-dir="' + socket_path + '/"', fixme: socket_dir not recognized
+          # '--socket-dir="' + socket_path + '/"', fixme: socket_dir not recognized
             '--server-idle-timeout=86400', # stop server after 24h with no client connection
             '--start=xterm',
-#            '--start-child=xterm', '--exit-with-children',
-#            '--tcp-auth=file:filename=' + fpath_passwd,
-#            '--tcp-encryption=AES',
-#            '--tcp-encryption-keyfile=' + fpath_aeskey,
+          # '--start-child=xterm', '--exit-with-children',
+          # '--tcp-auth=file:filename=' + fpath_passwd,
+          # '--tcp-encryption=AES',
+          # '--tcp-encryption-keyfile=' + fpath_aeskey,
             '--clipboard-direction=both',
             '--no-bell',
             '--no-speaker',
@@ -90,8 +91,8 @@ def setup_xprahtml5():
             '--no-microphone',
             '--no-notifications',
             '--dpi=96',
-#            '--sharing'
-           ]
+          # '--sharing',
+          ]
     logger.info('Xpra command: ' + ' '.join(cmd))
 
     return {
@@ -100,7 +101,7 @@ def setup_xprahtml5():
         },
         'command': cmd,
         'mappath': _xprahtml5_mappath,
-        'absolute_url': False, 
+        'absolute_url': False,
         'timeout': 30,
         'new_browser_tab': True,
         'launcher_entry': {
