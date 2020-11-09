@@ -74,29 +74,29 @@ def setup_xprahtml5():
 
     # create command
     cmd = [os.path.join(HERE, 'share/launch_xpra.sh'),
-            'start',
-            '--html=on',
-            '--bind-tcp=0.0.0.0:{port}',
-          # '--socket-dir="' + socket_path + '/"', fixme: socket_dir not recognized
-            '--server-idle-timeout=86400', # stop server after 24h with no client connection
-            '--start=xterm',
-          # '--start-child=xterm', '--exit-with-children',
-          # '--tcp-auth=file:filename=' + fpath_passwd,
-          # '--tcp-encryption=AES',
-          # '--tcp-encryption-keyfile=' + fpath_aeskey,
-            '--clipboard-direction=both',
-            '--no-bell',
-            '--no-speaker',
-            '--no-printing',
-            '--no-microphone',
-            '--no-notifications',
-            '--dpi=96',
-          # '--sharing',
+           'start',
+           '--html=on',
+           '--bind-tcp=0.0.0.0:{port}',
+         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
+           '--server-idle-timeout=86400',  # stop server after 24h with no client connection
+           '--start=xterm',
+         # '--start-child=xterm', '--exit-with-children',
+         # '--tcp-auth=file:filename=' + fpath_passwd,
+         # '--tcp-encryption=AES',
+         # '--tcp-encryption-keyfile=' + fpath_aeskey,
+           '--clipboard-direction=both',
+           '--no-bell',
+           '--no-speaker',
+           '--no-printing',
+           '--no-microphone',
+           '--no-notifications',
+           '--dpi=96',
+         # '--sharing',
           ]
     logger.info('Xpra command: ' + ' '.join(cmd))
 
     return {
-        'environment': { # as '--socket-dir' does not work as expected, we set this
+        'environment': {  # as '--socket-dir' does not work as expected, we set this
             'XDG_RUNTIME_DIR': socket_path,
         },
         'command': cmd,
