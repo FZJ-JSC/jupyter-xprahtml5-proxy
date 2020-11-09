@@ -5,4 +5,4 @@ def test_setupcall():
     import jupyter_xprahtml5 as jx
 
     print("\nRunning test_setupcall...")
-    print(jx.setup_html5())
+    print(jx.setup_xprahtml5())
