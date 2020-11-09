@@ -1,3 +1,5 @@
+![build](https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy/workflows/build/badge.svg)
+
 # jupyter-xprahtml5-proxy
 --------------------------
 Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to use remote desktop in the browser.
