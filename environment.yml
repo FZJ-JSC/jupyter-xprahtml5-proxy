@@ -8,5 +8,5 @@ dependencies:
   - jupyter_conda
   - pip
   - pip:
-      - xpra>=4.0.4
+#      - xpra>=4.0.4
       - -r file:requirements.txt
