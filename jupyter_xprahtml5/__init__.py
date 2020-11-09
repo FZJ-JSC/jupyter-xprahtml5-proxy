@@ -11,12 +11,12 @@ def _xprahtml5_mappath(path):
     from getpass import getuser
 
     uri_parms = '?' + '&'.join([
-                  'username=' + getuser(),
-                # 'password=' + _xprahtml5_passwd,
-                # 'encryption=AES',
-                # 'key=' + _xprahtml5_aeskey,
-                # 'sharing=true',
-                  ])
+        'username=' + getuser(),
+        # 'password=' + _xprahtml5_passwd,
+        # 'encryption=AES',
+        # 'key=' + _xprahtml5_aeskey,
+        # 'sharing=true',
+    ])
 
     if path in ('/', '/index.html', ):
         path = '/index.html' + uri_parms
@@ -73,26 +73,27 @@ def setup_xprahtml5():
         raise FileNotFoundError("Encryption key generation in temp file FAILED")
 
     # create command
-    cmd = [os.path.join(HERE, 'share/launch_xpra.sh'),
-           'start',
-           '--html=on',
-           '--bind-tcp=0.0.0.0:{port}',
-         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
-           '--server-idle-timeout=86400',  # stop server after 24h with no client connection
-           '--start=xterm',
-         # '--start-child=xterm', '--exit-with-children',
-         # '--tcp-auth=file:filename=' + fpath_passwd,
-         # '--tcp-encryption=AES',
-         # '--tcp-encryption-keyfile=' + fpath_aeskey,
-           '--clipboard-direction=both',
-           '--no-bell',
-           '--no-speaker',
-           '--no-printing',
-           '--no-microphone',
-           '--no-notifications',
-           '--dpi=96',
-         # '--sharing',
-          ]
+    cmd = [
+        os.path.join(HERE, 'share/launch_xpra.sh'),
+        'start',
+        '--html=on',
+        '--bind-tcp=0.0.0.0:{port}',
+        # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
+        '--server-idle-timeout=86400',  # stop server after 24h with no client connection
+        '--start=xterm',
+        # '--start-child=xterm', '--exit-with-children',
+        # '--tcp-auth=file:filename=' + fpath_passwd,
+        # '--tcp-encryption=AES',
+        # '--tcp-encryption-keyfile=' + fpath_aeskey,
+        '--clipboard-direction=both',
+        '--no-bell',
+        '--no-speaker',
+        '--no-printing',
+        '--no-microphone',
+        '--no-notifications',
+        '--dpi=96',
+        # '--sharing',
+    ]
     logger.info('Xpra command: ' + ' '.join(cmd))
 
     return {
