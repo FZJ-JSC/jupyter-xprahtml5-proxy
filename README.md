@@ -1,4 +1,4 @@
-# jupyter-xprahtml5-server
+# jupyter-xprahtml5-proxy
 --------------------------
 Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to use remote desktop in the browser.
 
@@ -32,7 +32,7 @@ source venv/bin/activate
 #### Install jupyter-xprahtml5-proxy
 
 ```
-pip install git+https://github.com/FZJ-JSC/jupyter-xprahtml5-server.git
+pip install git+https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy.git
 ```
 
 #### Enable jupyter-xprahtml5-proxy Extensions
