@@ -6,7 +6,7 @@ with open(path.join(HERE, "README.md"), "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="jupyter-xprahtml5-server",
+    name="jupyter-xprahtml5-proxy",
     packages=find_packages(),
     version='0.2.0',
 
@@ -14,7 +14,7 @@ setup(
     description="Xpra for JupyterLab",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/FZJ_JSC/jupyter-xprahtml5-server",
+    url="https://github.com/FZJ_JSC/jupyter-xprahtml5-proxy",
 
     keywords=["jupyter", "xpra", "jupyterhub", "jupyter-server-proxy"],
     classifiers=[

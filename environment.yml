@@ -1,8 +1,12 @@
+# run: conda env create --file environment.yml
+name: jupyter-xprahtml5-proxy
 channels:
   - conda-forge
 dependencies:
-  - xpra>=4.0.4
-  - jupyter-server-proxy>=1.4
+  - jupyterlab=2
+  - jupyterlab_server
+  - jupyter_conda
   - pip
   - pip:
-      - .
+      - xpra>=4.0.4
+      - -r file:requirements.txt
