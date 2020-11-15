@@ -79,7 +79,8 @@ def setup_xprahtml5():
         '--html=on',
         '--bind-tcp=0.0.0.0:{port}',
         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
-        '--server-idle-timeout=86400',  # stop server after 24h with no client connection
+        # '--server-idle-timeout=86400',  # stop server after 24h with no client connection
+        # '--exit-with-client=yes',  # stop Xpra when the browser disconnects
         '--start=xterm',
         # '--start-child=xterm', '--exit-with-children',
         # '--tcp-auth=file:filename=' + fpath_passwd,
