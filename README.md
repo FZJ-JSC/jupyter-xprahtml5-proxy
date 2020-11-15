@@ -49,7 +49,7 @@ Connect to your database as instructed in the Quickstart section.
 
 ## Configuration
 This package calls `xpra` with a bunch of settings. Please read the [Xpra manual](https://xpra.org/manual.html) if you want to now the details.  
-You have to modify `setup_xprahtml5()` in `jupyter_xprahtml5/__init__.py` for change.
+You have to modify `setup_xprahtml5()` in `jupyter_xprahtml5_proxy/__init__.py` for change.
 
 ## Credits
 - Xpra
