@@ -92,8 +92,9 @@ def setup_xprahtml5():
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
-        '--dpi=96',
+        # '--dpi=96',
         # '--sharing',
+        '--no-daemon',  # mandatory
     ]
     logger.info('Xpra command: ' + ' '.join(cmd))
 
@@ -104,7 +105,7 @@ def setup_xprahtml5():
         'command': cmd,
         'mappath': _xprahtml5_mappath,
         'absolute_url': False,
-        'timeout': 30,
+        'timeout': 60,
         'new_browser_tab': True,
         'launcher_entry': {
             'enabled': True,
