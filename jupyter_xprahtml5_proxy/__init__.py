@@ -94,16 +94,16 @@ def setup_xprahtml5():
         # '--exit-with-client=yes',  # stop Xpra when the browser disconnects
         '--start=xterm',
         # '--start-child=xterm', '--exit-with-children',
-        # '--tcp-auth=file:filename=' + fpath_passwd,
-        # '--tcp-encryption=AES',
-        # '--tcp-encryption-keyfile=' + fpath_aeskey,
+        '--tcp-auth=file:filename=' + fpath_passwd,
+        '--tcp-encryption=AES',
+        '--tcp-encryption-keyfile=' + fpath_aeskey,
         '--clipboard-direction=both',
         '--no-bell',
         '--no-speaker',
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
-        # '--dpi=96',
+        # '--dpi=96',  # only needed if Xserver does not support dynamic dpi change
         # '--sharing',
         '--no-daemon',  # mandatory
     ]
