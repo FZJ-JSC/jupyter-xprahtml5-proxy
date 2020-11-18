@@ -7,19 +7,27 @@ logger.setLevel('INFO')
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def _xprahtml5_mappath(path):
+def _xprahtml5_urlparams():
     from getpass import getuser
 
-    uri_parms = '?' + '&'.join([
+    url_params = '?' + '&'.join([
         'username=' + getuser(),
-        # 'password=' + _xprahtml5_passwd,
-        # 'encryption=AES',
-        # 'key=' + _xprahtml5_aeskey,
+        'password=' + _xprahtml5_passwd,
+        'encryption=AES',
+        'key=' + _xprahtml5_aeskey,
         # 'sharing=true',
     ])
 
+    return url_params
+
+
+def _xprahtml5_mappath(path):
+
+    # always pass the url parameter
     if path in ('/', '/index.html', ):
-        path = '/index.html' + uri_parms
+        url_params = _xprahtml5_urlparams()
+        path = '/index.html' + url_params
+
         logger.info('Xpra URI: ' + path)
 
     return path
@@ -72,6 +80,9 @@ def setup_xprahtml5():
         logger.error("Encryption key generation in temp file FAILED")
         raise FileNotFoundError("Encryption key generation in temp file FAILED")
 
+    # entry page including url parameters
+    entry_page = 'index.html' + _xprahtml5_urlparams()
+
     # create command
     cmd = [
         os.path.join(HERE, 'share/launch_xpra.sh'),
@@ -111,5 +122,6 @@ def setup_xprahtml5():
             'enabled': True,
             'icon_path': os.path.join(HERE, 'share/xpra-logo.svg'),
             'title': 'Xpra Desktop',
+            'page': entry_page,
         },
     }
