@@ -102,6 +102,7 @@ def setup_xprahtml5():
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
+        '--no-systemd-run',  # do not delegated start-cmd to the system wide proxy server instance
         # '--dpi=96',  # only needed if Xserver does not support dynamic dpi change
         '--sharing',  # this allows to open the desktop in multiple browsers at the same time
         '--no-daemon',  # mandatory
