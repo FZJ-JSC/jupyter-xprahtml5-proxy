@@ -90,7 +90,7 @@ def setup_xprahtml5():
         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
         # '--server-idle-timeout=86400',  # stop server after 24h with no client connection
         # '--exit-with-client=yes',  # stop Xpra when the browser disconnects
-        '--start=\"xterm -fa Monospace\"',
+        '--start=xterm -fa Monospace',
         # '--start-child=xterm', '--exit-with-children',
         '--tcp-auth=file:filename=' + fpath_passwd,
         '--tcp-encryption=AES',
