@@ -98,6 +98,7 @@ def setup_xprahtml5():
         '--tcp-encryption=AES',
         '--tcp-encryption-keyfile=' + fpath_aeskey,
         '--clipboard-direction=both',
+        '--no-mdns',  # do not advertise the xpra session on the local network
         '--no-bell',
         '--no-speaker',
         '--no-printing',
@@ -116,7 +117,7 @@ def setup_xprahtml5():
         'command': cmd,
         'mappath': _xprahtml5_mappath,
         'absolute_url': False,
-        'timeout': 60,
+        'timeout': 90,
         'new_browser_tab': True,
         'launcher_entry': {
             'enabled': True,
