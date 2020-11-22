@@ -15,7 +15,7 @@ def _xprahtml5_urlparams():
         'password=' + _xprahtml5_passwd,
         'encryption=AES',
         'key=' + _xprahtml5_aeskey,
-        # 'sharing=true',
+        'sharing=true',
     ])
 
     return url_params
@@ -27,8 +27,6 @@ def _xprahtml5_mappath(path):
     if path in ('/', '/index.html', ):
         url_params = _xprahtml5_urlparams()
         path = '/index.html' + url_params
-
-        logger.info('Xpra URI: ' + path)
 
     return path
 
@@ -92,7 +90,7 @@ def setup_xprahtml5():
         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
         # '--server-idle-timeout=86400',  # stop server after 24h with no client connection
         # '--exit-with-client=yes',  # stop Xpra when the browser disconnects
-        '--start=xterm',
+        '--start="xterm -fa Monospace',
         # '--start-child=xterm', '--exit-with-children',
         '--tcp-auth=file:filename=' + fpath_passwd,
         '--tcp-encryption=AES',
@@ -105,7 +103,7 @@ def setup_xprahtml5():
         '--no-microphone',
         '--no-notifications',
         # '--dpi=96',  # only needed if Xserver does not support dynamic dpi change
-        # '--sharing',
+        '--sharing',  # this allows to open the desktop in multiple browsers at the same time
         '--no-daemon',  # mandatory
     ]
     logger.info('Xpra command: ' + ' '.join(cmd))
