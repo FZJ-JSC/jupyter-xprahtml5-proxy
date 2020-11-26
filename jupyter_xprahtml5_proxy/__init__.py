@@ -7,20 +7,26 @@ logger.setLevel('INFO')
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def _xprahtml5_mappath(path):
+def _xprahtml5_urlparams():
     from getpass import getuser
 
-    uri_parms = '?' + '&'.join([
+    url_params = '?' + '&'.join([
         'username=' + getuser(),
-        # 'password=' + _xprahtml5_passwd,
-        # 'encryption=AES',
-        # 'key=' + _xprahtml5_aeskey,
-        # 'sharing=true',
+        'password=' + _xprahtml5_passwd,
+        'encryption=AES',
+        'key=' + _xprahtml5_aeskey,
+        'sharing=true',
     ])
 
+    return url_params
+
+
+def _xprahtml5_mappath(path):
+
+    # always pass the url parameter
     if path in ('/', '/index.html', ):
-        path = '/index.html' + uri_parms
-        logger.info('Xpra URI: ' + path)
+        url_params = _xprahtml5_urlparams()
+        path = '/index.html' + url_params
 
     return path
 
@@ -72,6 +78,9 @@ def setup_xprahtml5():
         logger.error("Encryption key generation in temp file FAILED")
         raise FileNotFoundError("Encryption key generation in temp file FAILED")
 
+    # launchers url file including url parameters
+    urlfile = 'index.html' + _xprahtml5_urlparams()
+
     # create command
     cmd = [
         os.path.join(HERE, 'share/launch_xpra.sh'),
@@ -81,19 +90,21 @@ def setup_xprahtml5():
         # '--socket-dir="' + socket_path + '/"',  # fixme: socket_dir not recognized
         # '--server-idle-timeout=86400',  # stop server after 24h with no client connection
         # '--exit-with-client=yes',  # stop Xpra when the browser disconnects
-        '--start=xterm',
+        '--start=xterm -fa Monospace',
         # '--start-child=xterm', '--exit-with-children',
-        # '--tcp-auth=file:filename=' + fpath_passwd,
-        # '--tcp-encryption=AES',
-        # '--tcp-encryption-keyfile=' + fpath_aeskey,
+        '--tcp-auth=file:filename=' + fpath_passwd,
+        '--tcp-encryption=AES',
+        '--tcp-encryption-keyfile=' + fpath_aeskey,
         '--clipboard-direction=both',
+        '--no-mdns',  # do not advertise the xpra session on the local network
         '--no-bell',
         '--no-speaker',
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
-        # '--dpi=96',
-        # '--sharing',
+        '--no-systemd-run',  # do not delegated start-cmd to the system wide proxy server instance
+        # '--dpi=96',  # only needed if Xserver does not support dynamic dpi change
+        '--sharing',  # this allows to open the desktop in multiple browsers at the same time
         '--no-daemon',  # mandatory
     ]
     logger.info('Xpra command: ' + ' '.join(cmd))
@@ -105,11 +116,12 @@ def setup_xprahtml5():
         'command': cmd,
         'mappath': _xprahtml5_mappath,
         'absolute_url': False,
-        'timeout': 60,
+        'timeout': 90,
         'new_browser_tab': True,
         'launcher_entry': {
             'enabled': True,
             'icon_path': os.path.join(HERE, 'share/xpra-logo.svg'),
             'title': 'Xpra Desktop',
+            'urlfile': urlfile,
         },
     }

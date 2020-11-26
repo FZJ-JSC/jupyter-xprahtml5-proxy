@@ -11,4 +11,4 @@
 # module load GCCcore/.9.3.0 > /dev/null
 # module load xpra/4.0.4-Python-3.8.5 > /dev/null
 
-xpra $@
+xpra "$@"
