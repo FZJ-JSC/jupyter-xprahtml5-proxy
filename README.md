@@ -11,10 +11,10 @@ Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to
 This package executes the `xpra` command. This command assumes the `xpra` command is available in the environment's $PATH. You might need to adjust the file [launch_xpra.sh](jupyter-xprahtml5-proxy/share/launch_xpra.sh) to ensure this.
 
 ## Security
-[Xpra](https://xpra.org/) supports password and encryption. Both are NOT required, if you can trust _everyone_, who can log in to the host where your JupyterLab (incl. (jupyter-server-proxy)[https://github.com/jupyterhub/jupyter-server-proxy], (jupyter-xprahtml5-proxy)[https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy] and [Xpra-HTML5](https://xpra.org/)) is running.  
+[Xpra](https://xpra.org/) supports password and encryption. Both are NOT required, if you can trust _everyone_, who can log in to the host where your JupyterLab (incl. [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy), [jupyter-xprahtml5-proxy](https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy) and [Xpra-HTML5](https://xpra.org/)) is running.  
 BUT (!) if you are on a multiuser system, where you CANNOT trust everyone, you must ensure that your Xpra session is secured by at least a password.
 
-Currently this requires that (jupyter-server-proxy)[https://github.com/jupyterhub/jupyter-server-proxy] includes the [pull request](https://github.com/jupyterhub/jupyter-server-proxy/pull/226) and you use jupyter-xprahtml5-proxy with a version number >= 0.3.0.
+Currently this requires that [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) includes the [pull request](https://github.com/jupyterhub/jupyter-server-proxy/pull/226) and you use jupyter-xprahtml5-proxy with a version number >= 0.3.0.
 
 ### Xpra
 [Xpra](https://xpra.org/) is an open-source multi-platform persistent *remote display* solution for forwarding applications and desktop screens. It allows you to run X11 programs, usually on a remote host, and direct their display to your local machine.  
