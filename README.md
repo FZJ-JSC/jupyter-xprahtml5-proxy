@@ -15,8 +15,8 @@ This package executes the `xpra` command. This command assumes the `xpra` comman
 Both are NOT required, if you can trust _everyone_, who can log in to the host where your JupyterLab is running.
 (incl. [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy), [jupyter-xprahtml5-proxy](https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy) and [Xpra-HTML5](https://xpra.org/))
   
-BUT (!!!)
-if you are on a multiuser system, where you CANNOT trust everyone,
+*BUT (!!!)*  
+if you are on a multiuser system, where you CANNOT trust everyone,  
 you must(!) ensure that your Xpra session is secured by at least a password.
 
 Currently this requires 
