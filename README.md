@@ -20,7 +20,7 @@ if you are on a multiuser system, where you CANNOT trust everyone,
 you must(!) ensure that your Xpra session is secured by at least a password.
 
 Currently this requires 
-- that [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) includes the [pull request](https://github.com/jupyterhub/jupyter-server-proxy/pull/226) and 
+- that [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) includes this [pull request](https://github.com/jupyterhub/jupyter-server-proxy/pull/226) and 
 - you use jupyter-xprahtml5-proxy with a version number >= 0.3.0 (not on pypi)
 
 ### Xpra
