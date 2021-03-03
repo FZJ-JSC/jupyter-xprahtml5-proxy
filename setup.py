@@ -14,7 +14,7 @@ setup(
     description="Xpra for JupyterLab",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/FZJ_JSC/jupyter-xprahtml5-proxy",
+    url="https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy",
 
     keywords=["jupyter", "xpra", "jupyterhub", "jupyter-server-proxy"],
     classifiers=[
