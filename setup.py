@@ -11,7 +11,7 @@ setup(
     version = version,
     packages = find_packages(),
 
-    url = 'https://github.com/FZJ_JSC/jupyter-xprahtml5-proxy',
+    url = 'https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy',
     download_url = 'https://github.com/FZJ-JSC/jupyter-xprahtml5-proxy/archive/v{0}.tar.gz'.format(version),
 
     author = 'Jens Henrik Goebbert',
