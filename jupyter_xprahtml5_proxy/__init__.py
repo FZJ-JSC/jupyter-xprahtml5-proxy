@@ -36,7 +36,7 @@ def setup_xprahtml5():
         with jupyter-server-proxy.
     """
     from pathlib import Path
-    from tempfile import gettempdir, mkstemp
+    from tempfile import gettempdir, mkstemp, mkdtemp
     from random import choice
     from string import ascii_letters, digits
 
@@ -48,8 +48,7 @@ def setup_xprahtml5():
         return (''.join((choice(letters_and_digits) for i in range(length))))
 
     # ensure a known secure sockets directory exists, as /run/user/$UID might not be available
-    socket_path = os.path.join(gettempdir(), 'xpra_sockets_' + str(os.getuid()))
-    Path(socket_path).mkdir(mode=0o700, parents=True, exist_ok=True)
+    socket_path = mkdtemp(prefix='xpra_sockets_' + str(os.getuid()))
     logger.info('Created secure socket directory for Xpra: ' + socket_path)
 
     # generate file with random one-time-password
