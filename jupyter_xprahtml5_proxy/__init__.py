@@ -78,7 +78,7 @@ def setup_xprahtml5():
         raise FileNotFoundError("Encryption key generation in temp file FAILED")
 
     # launchers url file including url parameters
-    urlfile = 'index.html' + _xprahtml5_urlparams()
+    path_info = 'xprahtml5/index.html' + _xprahtml5_urlparams()
 
     # create command
     cmd = [
@@ -121,6 +121,6 @@ def setup_xprahtml5():
             'enabled': True,
             'icon_path': os.path.join(HERE, 'share/xpra-logo.svg'),
             'title': 'Xpra Desktop',
-            'urlfile': urlfile,
+            'path_info': path_info,
         },
     }
