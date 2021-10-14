@@ -7,6 +7,26 @@ logger.setLevel('INFO')
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def get_xpra_executable(prog):
+    # Find prog in known locations
+    other_paths = [
+        os.path.join('/opt/xpra/bin', prog),
+    ]
+
+    wp = os.path.join(HERE, 'bin', prog)
+    if os.path.exists(wp):
+        return wp
+
+    if shutil.which(prog):
+        return prog
+
+    for op in other_paths:
+        if os.path.exists(op):
+            return op
+
+    raise FileNotFoundError(f'Could not find {prog} in PATH')
+
+
 def _xprahtml5_urlparams():
     from getpass import getuser
 
@@ -82,7 +102,7 @@ def setup_xprahtml5():
 
     # create command
     cmd = [
-        os.path.join(HERE, 'share/launch_xpra.sh'),
+        get_xpra_executable('xpra'),
         'start',
         '--html=on',
         '--bind-tcp=0.0.0.0:{port}',
@@ -119,7 +139,7 @@ def setup_xprahtml5():
         'new_browser_tab': True,
         'launcher_entry': {
             'enabled': True,
-            'icon_path': os.path.join(HERE, 'share/xpra-logo.svg'),
+            'icon_path': os.path.join(HERE, 'icons/xpra-logo.svg'),
             'title': 'Xpra Desktop',
             'path_info': path_info,
         },
