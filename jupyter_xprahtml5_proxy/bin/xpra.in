@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# you might need to modify your environment
+# before you can start 'xpra'
+# Do it here.
+
+# example:
+# module purge
+# module load Stages/2022
+# module load GCCcore/.11.2.0
+# module load xpra/4.3.3
+
+xpra "$@"
