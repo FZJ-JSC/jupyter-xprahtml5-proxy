@@ -34,7 +34,7 @@ setup(
             'xprahtml5 = jupyter_xprahtml5_proxy:setup_xprahtml5',
         ]
     },
-    python_requires = '>=3.6'
+    python_requires = '>=3.6',
     install_requires = ['jupyter-server-proxy>=3.1.0'],
     include_package_data = True,
     zip_safe = False
