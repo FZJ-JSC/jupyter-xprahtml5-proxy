@@ -19,7 +19,7 @@ def get_xpra_executable(prog):
     if os.path.exists(wp):
         return wp
 
-    if shutil.which(prog):
+    if which(prog):
         return prog
 
     for op in other_paths:
