@@ -6,7 +6,8 @@ Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to
 ## Requirements
 - Python 3.6+
 - Jupyter Notebook 6.0+
-- JupyterLab 2.1+
+- JupyterLab >= 3.x
+- jupyter-server-proxy >= 3.1.0
 
 This package executes the `xpra` command. This command assumes the `xpra` command is available in the environment's $PATH. You might need to adjust the file [launch_xpra.sh](jupyter-xprahtml5-proxy/share/launch_xpra.sh) to ensure this.
 
