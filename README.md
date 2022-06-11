@@ -9,7 +9,7 @@ Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to
 - JupyterLab >= 3.x
 - jupyter-server-proxy >= 3.1.0
 
-This package executes the `xpra` command. This command assumes the `xpra` command is available in the environment's $PATH. You might need to adjust the file [launch_xpra.sh](jupyter-xprahtml5-proxy/share/launch_xpra.sh) to ensure this.
+This package executes the `xpra` command. This command assumes the `xpra` command is available in the environment's $PATH.
 
 ## Security
 [Xpra](https://xpra.org/) supports password and encryption.  
@@ -61,7 +61,7 @@ Click on the Xpra icon from the Jupyter Lab Launcher or the Xpra item from the N
 Connect to your database as instructed in the Quickstart section.
 
 ## Configuration
-This package calls `xpra` with a bunch of settings. Please read the [Xpra manual](https://xpra.org/manual.html) if you want to now the details.  
+This package calls `xpra` with a bunch of settings. Please read the [Xpra manual](https://xpra.org/manual.html) if you want to know the details.  
 You have to modify `setup_xprahtml5()` in `jupyter_xprahtml5_proxy/__init__.py` for change.
 
 ## Credits
