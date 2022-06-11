@@ -26,6 +26,9 @@ def get_xpra_executable(prog):
         if os.path.exists(op):
             return op
 
+    if os.getenv("XPRA_BIN") is not None:
+        return os.getenv("XPRA_BIN")
+
     raise FileNotFoundError(f'Could not find {prog} in PATH')
 
 
