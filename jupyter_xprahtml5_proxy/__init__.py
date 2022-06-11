@@ -8,6 +8,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def get_xpra_executable(prog):
+    from shutil import which
+
     # Find prog in known locations
     other_paths = [
         os.path.join('/opt/xpra/bin', prog),
