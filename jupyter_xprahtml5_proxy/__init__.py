@@ -120,6 +120,7 @@ def setup_xprahtml5():
         '--tcp-encryption=AES',
         '--tcp-encryption-keyfile=' + fpath_aeskey,
         '--clipboard-direction=both',
+        '--keyboard-sync=no',  # prevent keys from repeating unexpectedly on high latency
         '--no-mdns',  # do not advertise the xpra session on the local network
         '--no-bell',
         '--no-speaker',
