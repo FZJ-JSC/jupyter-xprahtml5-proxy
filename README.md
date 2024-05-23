@@ -7,7 +7,8 @@ Integrate Xpra in your Jupyter environment for an fast, feature-rich and easy to
 - Python 3.6+
 - Jupyter Notebook 6.0+
 - JupyterLab >= 3.x
-- jupyter-server-proxy >= 3.1.0
+- jupyter-server-proxy >= 4.0.0
+- tornado >= 6.3
 
 This package executes the `xpra` command. This command assumes the `xpra` command is available in the environment's $PATH.
 
@@ -18,11 +19,8 @@ Both are NOT required, if you can trust _everyone_, who can log in to the host w
   
 **BUT (!!!)**  
 if you are on a multiuser system, where you CANNOT trust everyone,  
-you must(!) ensure that your Xpra session is secured by at least a password.
-
-Currently this requires 
-- that [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) includes this [pull request](https://github.com/jupyterhub/jupyter-server-proxy/pull/226) and 
-- you use jupyter-xprahtml5-proxy with a version number >= 0.3.0 (not on pypi)
+you must(!) ensure that your Xpra session is secured.  
+From version 0.4.0 we use unix-sockets as this feature got added to jupyter-server-proxy>=4.0.0 (which relies on tornado>=6.3)
 
 ### Xpra
 [Xpra](https://xpra.org/) is an open-source multi-platform persistent *remote display* solution for forwarding applications and desktop screens. It allows you to run X11 programs, usually on a remote host, and direct their display to your local machine.  
