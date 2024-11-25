@@ -100,4 +100,5 @@ def setup_xprahtml5():
             'title': 'Xpra Desktop',
             'path_info': path_info,
         },
+        'progressive': True,
     }
