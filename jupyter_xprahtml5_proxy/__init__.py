@@ -68,16 +68,17 @@ def setup_xprahtml5():
         '--html=on',
         '--bind={unix_socket},auth=none',  # using sockets + jupyter-server-proxy => auth is not needed here
         '--socket-dir=' + socket_path,
-        '--start=xterm -fa "DejaVu Sans Mono" -fs 14',
+        '--start=xterm -xrm "XTerm*selectToClipboard: true" -fa "DejaVu Sans Mono" -fs 14',
         '--clipboard-direction=both',
         '--no-keyboard-sync',  # prevent keys from repeating unexpectedly on high latency
         '--no-mdns',  # do not advertise the xpra session on the local network
         '--no-bell',
+        '--no-audio',
         '--no-speaker',
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
-        '--no-dbus',
+        '--dbus-launch=""',  # '--no-dbus' req. Xpra >= 6
         '--no-systemd-run',  # do not delegated start-cmd to the system wide proxy server instance
         '--sharing',  # this allows to open the desktop in multiple browsers at the same time
         '--no-daemon',  # mandatory
