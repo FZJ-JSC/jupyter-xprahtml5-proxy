@@ -5,7 +5,7 @@ HERE = path.abspath(path.dirname(__file__))
 with open(path.join(HERE, 'README.md'), 'r', encoding = 'utf-8') as fh:
     long_description = fh.read()
 
-version='0.4.0'
+version='0.4.2'
 setup(
     name = 'jupyter-xprahtml5-proxy',
     version = version,
