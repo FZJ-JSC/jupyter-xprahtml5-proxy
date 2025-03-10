@@ -78,7 +78,7 @@ def setup_xprahtml5():
         '--no-printing',
         '--no-microphone',
         '--no-notifications',
-        '--dbus-launch=""',  # '--no-dbus' req. Xpra >= 6
+        '--dbus-launch=false',  # '--no-dbus' req. Xpra >= 6
         '--no-systemd-run',  # do not delegated start-cmd to the system wide proxy server instance
         '--sharing',  # this allows to open the desktop in multiple browsers at the same time
         '--no-daemon',  # mandatory
